@@ -1,0 +1,23 @@
+name: 'AWX setup CLI'
+description: 'Setup version of AWX CLI'
+
+inputs:
+  awx-version:
+    description: 'AWX CLI version'
+    required: false
+#  awx-token:
+#    description: 'AWX token'
+#    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+
+    - name: Install AWX CLI
+      run: ${{ github.action_path }}/awx-cli-setup.sh
+      shell: bash
+      env:
+        AWX_VERSION: ${{ inputs.awx-version }}
+#        AWX_TOKEN: ${{ inputs.awx-token }}
