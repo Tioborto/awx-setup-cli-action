@@ -5,9 +5,12 @@ inputs:
   awx-version:
     description: 'AWX CLI version'
     required: false
-#  awx-token:
-#    description: 'AWX token'
-#    required: false
+  awx-url:
+    description: 'AWX url'
+    required: false
+  awx-token:
+    description: 'AWX token'
+    required: false
 
 runs:
   using: 'composite'
@@ -20,4 +23,5 @@ runs:
       shell: bash
       env:
         AWX_VERSION: ${{ inputs.awx-version }}
-#        AWX_TOKEN: ${{ inputs.awx-token }}
+        AWX_URL: ${{ inputs.awx-url }}
+        AWX_TOKEN: ${{ inputs.awx-token }}

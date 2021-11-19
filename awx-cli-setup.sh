@@ -8,14 +8,19 @@ then
   AWX_VERSION=${AWX_LATEST_VERSION}
 fi
 
-#if [[ -z "${AWX_TOKEN}" ]]
-#then
-#  echo "No token specified."
-#  exit 0
-#fi
-
 echo "AWX CLI installation"
 
 python -m pip install --upgrade "awxkit==${AWX_VERSION}"
+
+if [[ -n "${AWX_URL}" ]]
+then
+echo "TOWER_URL=AWX_URL" >> $GITHUB_ENV
+fi
+
+if [[ -n "${AWX_TOKEN}" ]]
+then
+echo "TOWER_TOKEN=AWX_TOKEN" >> $GITHUB_ENV
+fi
+
 
 exit 0
