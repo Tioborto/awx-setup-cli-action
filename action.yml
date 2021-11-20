@@ -1,5 +1,9 @@
 name: 'AWX setup CLI'
 description: 'Setup version of AWX CLI'
+author: 'Tioborto'
+branding:
+  icon: 'play'
+  color: 'blue'
 
 inputs:
   awx-version:
